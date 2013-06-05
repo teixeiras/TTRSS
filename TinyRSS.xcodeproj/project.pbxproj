@@ -1,0 +1,635 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		320AF8492C47A4D819F7C451 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 320AF8492C47A4D819F7C450 /* QuartzCore.framework */; };
+		8028E8DB175FE917008E1375 /* TTRSSCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 8028E8DA175FE917008E1375 /* TTRSSCategory.m */; };
+		8028E8DE175FE928008E1375 /* TTRSSCategoryManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8028E8DD175FE928008E1375 /* TTRSSCategoryManager.m */; };
+		8028E96D175FEA37008E1375 /* EGORefreshTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8028E930175FEA37008E1375 /* EGORefreshTableHeaderView.m */; };
+		8028E96E175FEA37008E1375 /* blackArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 8028E932175FEA37008E1375 /* blackArrow.png */; };
+		8028E96F175FEA37008E1375 /* blackArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8028E933175FEA37008E1375 /* blackArrow@2x.png */; };
+		8028E970175FEA37008E1375 /* blueArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 8028E934175FEA37008E1375 /* blueArrow.png */; };
+		8028E971175FEA37008E1375 /* blueArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8028E935175FEA37008E1375 /* blueArrow@2x.png */; };
+		8028E972175FEA37008E1375 /* grayArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 8028E936175FEA37008E1375 /* grayArrow.png */; };
+		8028E973175FEA37008E1375 /* grayArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8028E937175FEA37008E1375 /* grayArrow@2x.png */; };
+		8028E974175FEA37008E1375 /* whiteArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 8028E938175FEA37008E1375 /* whiteArrow.png */; };
+		8028E975175FEA37008E1375 /* whiteArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8028E939175FEA37008E1375 /* whiteArrow@2x.png */; };
+		8028E976175FEA37008E1375 /* README in Resources */ = {isa = PBXBuildFile; fileRef = 8028E93A175FEA37008E1375 /* README */; };
+		8028E977175FEA37008E1375 /* MWFSlideNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8028E93D175FEA37008E1375 /* MWFSlideNavigationViewController.m */; };
+		8028E97D175FEAC9008E1375 /* TTRSSSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8028E97C175FEAC9008E1375 /* TTRSSSettingsViewController.m */; };
+		8028E980175FEE0C008E1375 /* TTRSSCategoriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8028E97F175FEE0C008E1375 /* TTRSSCategoriesViewController.m */; };
+		8028E983175FFC4C008E1375 /* TTRSSFeedsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8028E982175FFC4C008E1375 /* TTRSSFeedsManager.m */; };
+		8028E986175FFC66008E1375 /* TTRSSFeed.m in Sources */ = {isa = PBXBuildFile; fileRef = 8028E985175FFC66008E1375 /* TTRSSFeed.m */; };
+		80BE6B48175D5B64004212FB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80BE6B47175D5B64004212FB /* UIKit.framework */; };
+		80BE6B4A175D5B64004212FB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80BE6B49175D5B64004212FB /* Foundation.framework */; };
+		80BE6B4C175D5B64004212FB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80BE6B4B175D5B64004212FB /* CoreGraphics.framework */; };
+		80BE6B4E175D5B64004212FB /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80BE6B4D175D5B64004212FB /* CoreData.framework */; };
+		80BE6B54175D5B64004212FB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 80BE6B52175D5B64004212FB /* InfoPlist.strings */; };
+		80BE6B56175D5B64004212FB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 80BE6B55175D5B64004212FB /* main.m */; };
+		80BE6B5A175D5B65004212FB /* TTRSSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 80BE6B59175D5B65004212FB /* TTRSSAppDelegate.m */; };
+		80BE6B5C175D5B65004212FB /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 80BE6B5B175D5B65004212FB /* Default.png */; };
+		80BE6B5E175D5B65004212FB /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 80BE6B5D175D5B65004212FB /* Default@2x.png */; };
+		80BE6B60175D5B65004212FB /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 80BE6B5F175D5B65004212FB /* Default-568h@2x.png */; };
+		80BE6B63175D5B65004212FB /* TinyRSS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 80BE6B61175D5B65004212FB /* TinyRSS.xcdatamodeld */; };
+		80BE6CBA175F1FC4004212FB /* TTRSSMainViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80BE6CA6175F1FC4004212FB /* TTRSSMainViewViewController.m */; };
+		80BE6CBB175F1FC4004212FB /* TTRSSMainViewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80BE6CAA175F1FC4004212FB /* TTRSSMainViewViewController.xib */; };
+		80BE6CBC175F1FC4004212FB /* NSDictionary+UrlEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 80BE6CAE175F1FC4004212FB /* NSDictionary+UrlEncoding.m */; };
+		80BE6CBD175F1FC4004212FB /* NSString+URLEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 80BE6CB0175F1FC4004212FB /* NSString+URLEncoding.m */; };
+		80BE6CBE175F1FC4004212FB /* TTRSSJSonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 80BE6CB2175F1FC4004212FB /* TTRSSJSonParser.m */; };
+		80BE6CBF175F1FC4004212FB /* TTRSSConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 80BE6CB7175F1FC4004212FB /* TTRSSConfig.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		320AF8492C47A4D819F7C450 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.frameworks; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		320B6C86F11D9990244A9730 /* Three20.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Three20.bundle; path = three20/src/Three20.bundle; sourceTree = SOURCE_ROOT; };
+		8028E8D9175FE917008E1375 /* TTRSSCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTRSSCategory.h; sourceTree = "<group>"; };
+		8028E8DA175FE917008E1375 /* TTRSSCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTRSSCategory.m; sourceTree = "<group>"; };
+		8028E8DC175FE928008E1375 /* TTRSSCategoryManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTRSSCategoryManager.h; sourceTree = "<group>"; };
+		8028E8DD175FE928008E1375 /* TTRSSCategoryManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTRSSCategoryManager.m; sourceTree = "<group>"; };
+		8028E92F175FEA37008E1375 /* EGORefreshTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGORefreshTableHeaderView.h; sourceTree = "<group>"; };
+		8028E930175FEA37008E1375 /* EGORefreshTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGORefreshTableHeaderView.m; sourceTree = "<group>"; };
+		8028E932175FEA37008E1375 /* blackArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blackArrow.png; sourceTree = "<group>"; };
+		8028E933175FEA37008E1375 /* blackArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blackArrow@2x.png"; sourceTree = "<group>"; };
+		8028E934175FEA37008E1375 /* blueArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blueArrow.png; sourceTree = "<group>"; };
+		8028E935175FEA37008E1375 /* blueArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blueArrow@2x.png"; sourceTree = "<group>"; };
+		8028E936175FEA37008E1375 /* grayArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grayArrow.png; sourceTree = "<group>"; };
+		8028E937175FEA37008E1375 /* grayArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "grayArrow@2x.png"; sourceTree = "<group>"; };
+		8028E938175FEA37008E1375 /* whiteArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = whiteArrow.png; sourceTree = "<group>"; };
+		8028E939175FEA37008E1375 /* whiteArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "whiteArrow@2x.png"; sourceTree = "<group>"; };
+		8028E93A175FEA37008E1375 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
+		8028E93C175FEA37008E1375 /* MWFSlideNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWFSlideNavigationViewController.h; sourceTree = "<group>"; };
+		8028E93D175FEA37008E1375 /* MWFSlideNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWFSlideNavigationViewController.m; sourceTree = "<group>"; };
+		8028E97B175FEAC9008E1375 /* TTRSSSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTRSSSettingsViewController.h; sourceTree = "<group>"; };
+		8028E97C175FEAC9008E1375 /* TTRSSSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTRSSSettingsViewController.m; sourceTree = "<group>"; };
+		8028E97E175FEE0C008E1375 /* TTRSSCategoriesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTRSSCategoriesViewController.h; sourceTree = "<group>"; };
+		8028E97F175FEE0C008E1375 /* TTRSSCategoriesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTRSSCategoriesViewController.m; sourceTree = "<group>"; };
+		8028E981175FFC4C008E1375 /* TTRSSFeedsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTRSSFeedsManager.h; sourceTree = "<group>"; };
+		8028E982175FFC4C008E1375 /* TTRSSFeedsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTRSSFeedsManager.m; sourceTree = "<group>"; };
+		8028E984175FFC66008E1375 /* TTRSSFeed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTRSSFeed.h; sourceTree = "<group>"; };
+		8028E985175FFC66008E1375 /* TTRSSFeed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTRSSFeed.m; sourceTree = "<group>"; };
+		80BE6B44175D5B64004212FB /* TinyRSS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TinyRSS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		80BE6B47175D5B64004212FB /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		80BE6B49175D5B64004212FB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		80BE6B4B175D5B64004212FB /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		80BE6B4D175D5B64004212FB /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		80BE6B51175D5B64004212FB /* TinyRSS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TinyRSS-Info.plist"; sourceTree = "<group>"; };
+		80BE6B53175D5B64004212FB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		80BE6B55175D5B64004212FB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		80BE6B57175D5B64004212FB /* TinyRSS-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TinyRSS-Prefix.pch"; sourceTree = "<group>"; };
+		80BE6B58175D5B64004212FB /* TTRSSAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTRSSAppDelegate.h; sourceTree = "<group>"; };
+		80BE6B59175D5B65004212FB /* TTRSSAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTRSSAppDelegate.m; sourceTree = "<group>"; };
+		80BE6B5B175D5B65004212FB /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		80BE6B5D175D5B65004212FB /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		80BE6B5F175D5B65004212FB /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		80BE6B62175D5B65004212FB /* TinyRSS.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TinyRSS.xcdatamodel; sourceTree = "<group>"; };
+		80BE6CA5175F1FC4004212FB /* TTRSSMainViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTRSSMainViewViewController.h; sourceTree = "<group>"; };
+		80BE6CA6175F1FC4004212FB /* TTRSSMainViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTRSSMainViewViewController.m; sourceTree = "<group>"; };
+		80BE6CAA175F1FC4004212FB /* TTRSSMainViewViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TTRSSMainViewViewController.xib; sourceTree = "<group>"; };
+		80BE6CAD175F1FC4004212FB /* NSDictionary+UrlEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+UrlEncoding.h"; sourceTree = "<group>"; };
+		80BE6CAE175F1FC4004212FB /* NSDictionary+UrlEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+UrlEncoding.m"; sourceTree = "<group>"; };
+		80BE6CAF175F1FC4004212FB /* NSString+URLEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+URLEncoding.h"; sourceTree = "<group>"; };
+		80BE6CB0175F1FC4004212FB /* NSString+URLEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+URLEncoding.m"; sourceTree = "<group>"; };
+		80BE6CB1175F1FC4004212FB /* TTRSSJSonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTRSSJSonParser.h; sourceTree = "<group>"; };
+		80BE6CB2175F1FC4004212FB /* TTRSSJSonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTRSSJSonParser.m; sourceTree = "<group>"; };
+		80BE6CB6175F1FC4004212FB /* TTRSSConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTRSSConfig.h; sourceTree = "<group>"; };
+		80BE6CB7175F1FC4004212FB /* TTRSSConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTRSSConfig.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		80BE6B41175D5B64004212FB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				320AF8492C47A4D819F7C451 /* QuartzCore.framework in Frameworks */,
+				80BE6B48175D5B64004212FB /* UIKit.framework in Frameworks */,
+				80BE6B4A175D5B64004212FB /* Foundation.framework in Frameworks */,
+				80BE6B4C175D5B64004212FB /* CoreGraphics.framework in Frameworks */,
+				80BE6B4E175D5B64004212FB /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8028E8DF175FEA36008E1375 /* EGOTableViewPullRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				8028E92C175FEA37008E1375 /* EGOTableViewPullRefresh */,
+				8028E93A175FEA37008E1375 /* README */,
+			);
+			path = EGOTableViewPullRefresh;
+			sourceTree = "<group>";
+		};
+		8028E92C175FEA37008E1375 /* EGOTableViewPullRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				8028E92D175FEA37008E1375 /* Classes */,
+				8028E931175FEA37008E1375 /* Resources */,
+			);
+			path = EGOTableViewPullRefresh;
+			sourceTree = "<group>";
+		};
+		8028E92D175FEA37008E1375 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				8028E92E175FEA37008E1375 /* View */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		8028E92E175FEA37008E1375 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8028E92F175FEA37008E1375 /* EGORefreshTableHeaderView.h */,
+				8028E930175FEA37008E1375 /* EGORefreshTableHeaderView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8028E931175FEA37008E1375 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8028E932175FEA37008E1375 /* blackArrow.png */,
+				8028E933175FEA37008E1375 /* blackArrow@2x.png */,
+				8028E934175FEA37008E1375 /* blueArrow.png */,
+				8028E935175FEA37008E1375 /* blueArrow@2x.png */,
+				8028E936175FEA37008E1375 /* grayArrow.png */,
+				8028E937175FEA37008E1375 /* grayArrow@2x.png */,
+				8028E938175FEA37008E1375 /* whiteArrow.png */,
+				8028E939175FEA37008E1375 /* whiteArrow@2x.png */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		8028E93B175FEA37008E1375 /* Slider */ = {
+			isa = PBXGroup;
+			children = (
+				8028E93C175FEA37008E1375 /* MWFSlideNavigationViewController.h */,
+				8028E93D175FEA37008E1375 /* MWFSlideNavigationViewController.m */,
+			);
+			path = Slider;
+			sourceTree = "<group>";
+		};
+		80BE6B3B175D5B64004212FB = {
+			isa = PBXGroup;
+			children = (
+				80BE6B4F175D5B64004212FB /* TinyRSS */,
+				80BE6B46175D5B64004212FB /* Frameworks */,
+				80BE6B45175D5B64004212FB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		80BE6B45175D5B64004212FB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				80BE6B44175D5B64004212FB /* TinyRSS.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		80BE6B46175D5B64004212FB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				320AF8492C47A4D819F7C450 /* QuartzCore.framework */,
+				80BE6B47175D5B64004212FB /* UIKit.framework */,
+				80BE6B49175D5B64004212FB /* Foundation.framework */,
+				80BE6B4B175D5B64004212FB /* CoreGraphics.framework */,
+				80BE6B4D175D5B64004212FB /* CoreData.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		80BE6B4F175D5B64004212FB /* TinyRSS */ = {
+			isa = PBXGroup;
+			children = (
+				80BE6C9E175F1FC4004212FB /* Categories */,
+				80BE6CA3175F1FC4004212FB /* Feeds */,
+				80BE6CAB175F1FC4004212FB /* Libs */,
+				80BE6CB3175F1FC4004212FB /* Settings */,
+				80BE6B58175D5B64004212FB /* TTRSSAppDelegate.h */,
+				80BE6B59175D5B65004212FB /* TTRSSAppDelegate.m */,
+				80BE6B61175D5B65004212FB /* TinyRSS.xcdatamodeld */,
+				80BE6B50175D5B64004212FB /* Supporting Files */,
+			);
+			path = TinyRSS;
+			sourceTree = "<group>";
+		};
+		80BE6B50175D5B64004212FB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				320B6C86F11D9990244A9730 /* Three20.bundle */,
+				80BE6B51175D5B64004212FB /* TinyRSS-Info.plist */,
+				80BE6B52175D5B64004212FB /* InfoPlist.strings */,
+				80BE6B55175D5B64004212FB /* main.m */,
+				80BE6B57175D5B64004212FB /* TinyRSS-Prefix.pch */,
+				80BE6B5B175D5B65004212FB /* Default.png */,
+				80BE6B5D175D5B65004212FB /* Default@2x.png */,
+				80BE6B5F175D5B65004212FB /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		80BE6C9E175F1FC4004212FB /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				80BE6C9F175F1FC4004212FB /* Controllers */,
+				80BE6CA0175F1FC4004212FB /* Managers */,
+				80BE6CA1175F1FC4004212FB /* Models */,
+				80BE6CA2175F1FC4004212FB /* Views */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		80BE6C9F175F1FC4004212FB /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				8028E97E175FEE0C008E1375 /* TTRSSCategoriesViewController.h */,
+				8028E97F175FEE0C008E1375 /* TTRSSCategoriesViewController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		80BE6CA0175F1FC4004212FB /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				8028E8DC175FE928008E1375 /* TTRSSCategoryManager.h */,
+				8028E8DD175FE928008E1375 /* TTRSSCategoryManager.m */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		80BE6CA1175F1FC4004212FB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8028E8D9175FE917008E1375 /* TTRSSCategory.h */,
+				8028E8DA175FE917008E1375 /* TTRSSCategory.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		80BE6CA2175F1FC4004212FB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		80BE6CA3175F1FC4004212FB /* Feeds */ = {
+			isa = PBXGroup;
+			children = (
+				80BE6CA4175F1FC4004212FB /* Controllers */,
+				80BE6CA7175F1FC4004212FB /* Managers */,
+				80BE6CA8175F1FC4004212FB /* Models */,
+				80BE6CA9175F1FC4004212FB /* Views */,
+			);
+			path = Feeds;
+			sourceTree = "<group>";
+		};
+		80BE6CA4175F1FC4004212FB /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				80BE6CA5175F1FC4004212FB /* TTRSSMainViewViewController.h */,
+				80BE6CA6175F1FC4004212FB /* TTRSSMainViewViewController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		80BE6CA7175F1FC4004212FB /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				8028E981175FFC4C008E1375 /* TTRSSFeedsManager.h */,
+				8028E982175FFC4C008E1375 /* TTRSSFeedsManager.m */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		80BE6CA8175F1FC4004212FB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8028E984175FFC66008E1375 /* TTRSSFeed.h */,
+				8028E985175FFC66008E1375 /* TTRSSFeed.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		80BE6CA9175F1FC4004212FB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				80BE6CAA175F1FC4004212FB /* TTRSSMainViewViewController.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		80BE6CAB175F1FC4004212FB /* Libs */ = {
+			isa = PBXGroup;
+			children = (
+				8028E8DF175FEA36008E1375 /* EGOTableViewPullRefresh */,
+				8028E93B175FEA37008E1375 /* Slider */,
+				80BE6CAC175F1FC4004212FB /* Json */,
+			);
+			path = Libs;
+			sourceTree = "<group>";
+		};
+		80BE6CAC175F1FC4004212FB /* Json */ = {
+			isa = PBXGroup;
+			children = (
+				80BE6CAD175F1FC4004212FB /* NSDictionary+UrlEncoding.h */,
+				80BE6CAE175F1FC4004212FB /* NSDictionary+UrlEncoding.m */,
+				80BE6CAF175F1FC4004212FB /* NSString+URLEncoding.h */,
+				80BE6CB0175F1FC4004212FB /* NSString+URLEncoding.m */,
+				80BE6CB1175F1FC4004212FB /* TTRSSJSonParser.h */,
+				80BE6CB2175F1FC4004212FB /* TTRSSJSonParser.m */,
+			);
+			path = Json;
+			sourceTree = "<group>";
+		};
+		80BE6CB3175F1FC4004212FB /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				80BE6CB4175F1FC4004212FB /* Controllers */,
+				80BE6CB5175F1FC4004212FB /* Managers */,
+				80BE6CB8175F1FC4004212FB /* Models */,
+				80BE6CB9175F1FC4004212FB /* Views */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		80BE6CB4175F1FC4004212FB /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				8028E97B175FEAC9008E1375 /* TTRSSSettingsViewController.h */,
+				8028E97C175FEAC9008E1375 /* TTRSSSettingsViewController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		80BE6CB5175F1FC4004212FB /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				80BE6CB6175F1FC4004212FB /* TTRSSConfig.h */,
+				80BE6CB7175F1FC4004212FB /* TTRSSConfig.m */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		80BE6CB8175F1FC4004212FB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		80BE6CB9175F1FC4004212FB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		80BE6B43175D5B64004212FB /* TinyRSS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 80BE6B78175D5B65004212FB /* Build configuration list for PBXNativeTarget "TinyRSS" */;
+			buildPhases = (
+				80BE6B40175D5B64004212FB /* Sources */,
+				80BE6B41175D5B64004212FB /* Frameworks */,
+				80BE6B42175D5B64004212FB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TinyRSS;
+			productName = TinyRSS;
+			productReference = 80BE6B44175D5B64004212FB /* TinyRSS.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		80BE6B3C175D5B64004212FB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = TTRSS;
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "Filipe Teixeira";
+			};
+			buildConfigurationList = 80BE6B3F175D5B64004212FB /* Build configuration list for PBXProject "TinyRSS" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				English,
+			);
+			mainGroup = 80BE6B3B175D5B64004212FB;
+			productRefGroup = 80BE6B45175D5B64004212FB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				80BE6B43175D5B64004212FB /* TinyRSS */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		80BE6B42175D5B64004212FB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				80BE6B54175D5B64004212FB /* InfoPlist.strings in Resources */,
+				80BE6B5C175D5B65004212FB /* Default.png in Resources */,
+				80BE6B5E175D5B65004212FB /* Default@2x.png in Resources */,
+				80BE6B60175D5B65004212FB /* Default-568h@2x.png in Resources */,
+				80BE6CBB175F1FC4004212FB /* TTRSSMainViewViewController.xib in Resources */,
+				8028E96E175FEA37008E1375 /* blackArrow.png in Resources */,
+				8028E96F175FEA37008E1375 /* blackArrow@2x.png in Resources */,
+				8028E970175FEA37008E1375 /* blueArrow.png in Resources */,
+				8028E971175FEA37008E1375 /* blueArrow@2x.png in Resources */,
+				8028E972175FEA37008E1375 /* grayArrow.png in Resources */,
+				8028E973175FEA37008E1375 /* grayArrow@2x.png in Resources */,
+				8028E974175FEA37008E1375 /* whiteArrow.png in Resources */,
+				8028E975175FEA37008E1375 /* whiteArrow@2x.png in Resources */,
+				8028E976175FEA37008E1375 /* README in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		80BE6B40175D5B64004212FB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				80BE6B56175D5B64004212FB /* main.m in Sources */,
+				80BE6B5A175D5B65004212FB /* TTRSSAppDelegate.m in Sources */,
+				80BE6B63175D5B65004212FB /* TinyRSS.xcdatamodeld in Sources */,
+				80BE6CBA175F1FC4004212FB /* TTRSSMainViewViewController.m in Sources */,
+				80BE6CBC175F1FC4004212FB /* NSDictionary+UrlEncoding.m in Sources */,
+				80BE6CBD175F1FC4004212FB /* NSString+URLEncoding.m in Sources */,
+				80BE6CBE175F1FC4004212FB /* TTRSSJSonParser.m in Sources */,
+				80BE6CBF175F1FC4004212FB /* TTRSSConfig.m in Sources */,
+				8028E8DB175FE917008E1375 /* TTRSSCategory.m in Sources */,
+				8028E8DE175FE928008E1375 /* TTRSSCategoryManager.m in Sources */,
+				8028E96D175FEA37008E1375 /* EGORefreshTableHeaderView.m in Sources */,
+				8028E977175FEA37008E1375 /* MWFSlideNavigationViewController.m in Sources */,
+				8028E97D175FEAC9008E1375 /* TTRSSSettingsViewController.m in Sources */,
+				8028E980175FEE0C008E1375 /* TTRSSCategoriesViewController.m in Sources */,
+				8028E983175FFC4C008E1375 /* TTRSSFeedsManager.m in Sources */,
+				8028E986175FFC66008E1375 /* TTRSSFeed.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		80BE6B52175D5B64004212FB /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				80BE6B53175D5B64004212FB /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		80BE6B76175D5B65004212FB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(BUILT_PRODUCTS_DIR)/../three20",
+					"$(BUILT_PRODUCTS_DIR)/../../three20",
+					three20/Build/Products/three20,
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-ObjC";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		80BE6B77175D5B65004212FB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(BUILT_PRODUCTS_DIR)/../three20",
+					"$(BUILT_PRODUCTS_DIR)/../../three20",
+					three20/Build/Products/three20,
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				OTHER_LDFLAGS = "-ObjC";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		80BE6B79175D5B65004212FB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TinyRSS/TinyRSS-Prefix.pch";
+				HEADER_SEARCH_PATHS = "";
+				INFOPLIST_FILE = "TinyRSS/TinyRSS-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		80BE6B7A175D5B65004212FB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TinyRSS/TinyRSS-Prefix.pch";
+				HEADER_SEARCH_PATHS = "";
+				INFOPLIST_FILE = "TinyRSS/TinyRSS-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		80BE6B3F175D5B64004212FB /* Build configuration list for PBXProject "TinyRSS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				80BE6B76175D5B65004212FB /* Debug */,
+				80BE6B77175D5B65004212FB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		80BE6B78175D5B65004212FB /* Build configuration list for PBXNativeTarget "TinyRSS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				80BE6B79175D5B65004212FB /* Debug */,
+				80BE6B7A175D5B65004212FB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		80BE6B61175D5B65004212FB /* TinyRSS.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				80BE6B62175D5B65004212FB /* TinyRSS.xcdatamodel */,
+			);
+			currentVersion = 80BE6B62175D5B65004212FB /* TinyRSS.xcdatamodel */;
+			path = TinyRSS.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 80BE6B3C175D5B64004212FB /* Project object */;
+}
