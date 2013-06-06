@@ -8,9 +8,13 @@
 #import "TTRSSCategoriesViewController.h"
 #import "TTRSSMainViewViewController.h"
 #import "TTRSSSettingsViewController.h"
+#import "TTRSSFeedsManager.h"
+#import "TTRSSFeed.h"
 
 @interface TTRSSMainViewViewController ()
-
+{
+    NSMutableArray * _feeds;
+}
 @end
 
 @implementation TTRSSMainViewViewController
@@ -19,11 +23,42 @@
 {
     self = [super initWithStyle:style];
     if (self) {
-        // Custom initialization
-    }
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateFeedFromCategory:) name:KUpdateFeedOnCategory object:nil];
+         }
     return self;
 }
 
+-(void) updateFeedFromCategory:(NSNotification *)notification
+{
+    int category = [[[notification userInfo] valueForKey:@"category"] intValue];
+    [[TTRSSFeedsManager shareFeedManager] getUnreadHeadlines:0 andLimit:50 category:category onSuccess:^(NSArray * feeds) {
+        _feeds = [NSMutableArray new];
+        for(NSDictionary * feed in feeds) {
+            TTRSSFeed * tmpFeed = [TTRSSFeed  new];
+            tmpFeed.always_display_attachments = [feed[@"_always_display_attachments"] integerValue];
+            tmpFeed.author = feed[@"author"];
+            tmpFeed.comments_count = [feed[@"comments_count"] integerValue];;
+            tmpFeed.comments_link = feed[@"comments_link"];
+            tmpFeed.excerpt = feed[@"excerpt"];
+            tmpFeed.feed_id = [feed[@"feed_id"] integerValue];;
+            tmpFeed.feed_title = feed[@"feed_title"];
+            tmpFeed.identifier = [feed[@"id"] integerValue];;
+            tmpFeed.is_updated = [feed[@"is_updated"] integerValue];;
+            tmpFeed.labels = feed[@"labels"];
+            tmpFeed.link = feed[@"link"];
+            tmpFeed.marked = [feed[@"marked"] integerValue];;
+            tmpFeed.published = [feed[@"published"] integerValue];;
+            tmpFeed.score = [feed[@"score"] integerValue];;
+            tmpFeed.tags = feed[@"tags"];
+            tmpFeed.title = feed[@"title"];
+            tmpFeed.unread = [feed[@"unread"] integerValue];;
+            tmpFeed.updated = [feed[@"updated"] integerValue];;
+            [_feeds addObject:tmpFeed];
+        }
+        [self.tableView reloadData];
+        
+    }];
+}
 
 - (void)viewDidLoad
 {
@@ -81,16 +116,12 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
+   return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+    return [_feeds count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -98,7 +129,10 @@
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+        TTRSSFeed * feed = _feeds[indexPath.row];
+        cell.textLabel.text = feed.title;
+        cell.detailTextLabel.text = feed.excerpt;
     }
     
     // Configure the cell...

@@ -7,7 +7,34 @@
 //
 
 #import <Foundation/Foundation.h>
+extern NSString * const KUpdateFeedOnCategory;
+typedef NS_ENUM(NSInteger, ViewMode) {
+    ViewMode_all_articles,
+    ViewMode_unread,
+    ViewMode_adaptive,
+    ViewMode_marked,
+    ViewMode_updated
+};
+typedef NS_ENUM(NSInteger, SortMode) {
+    SortMode_date_reverse,
+    SortMode_feed_dates,
+    SortMode_default
+    
+};
+typedef NS_ENUM(NSInteger, SpecialIds) {
+    SpecialIds_starred = -1,
+    SpecialIds_published = -2,
+    SpecialIds_fresh = -3,
+    SpecialIds_all_articles = -4,
+    SpecialIds_archived = 0
+};
+
 
 @interface TTRSSFeedsManager : NSObject
++(TTRSSFeedsManager *) shareFeedManager;
+
+-(void) getUnreadHeadlines:(int) start andLimit:(int) limit category:(int) category onSuccess:(void(^)(NSArray *)) block;
+
+-(void) getAllHeadlines:(int) start andLimit:(int) limit category:(int) category onSuccess:(void(^)(NSArray *)) block;
 
 @end

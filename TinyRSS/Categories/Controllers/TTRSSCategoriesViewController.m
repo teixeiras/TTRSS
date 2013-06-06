@@ -8,7 +8,7 @@
 #import "MWFSlideNavigationViewController.h"
 #import "TTRSSCategoriesViewController.h"
 #import "TTRSSCategoryManager.h"
-
+#import "TTRSSFeedsManager.h"
 @interface TTRSSCategoriesViewController ()
 {
     NSArray * _categories;
@@ -21,7 +21,8 @@
 {
     self = [super initWithStyle:style];
     if (self) {
-        self.view.backgroundColor = [UIColor redColor];
+        self.view.backgroundColor = [UIColor blackColor];
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
          _categories = [[TTRSSCategoryManager shareCategoryManager] retrieveCategoriesWithBlock:^(NSArray * categories) {
              _categories = categories;
              [self.tableView reloadData];
@@ -59,6 +60,7 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         TTRSSCategory * category = _categories[indexPath.row];
         cell.textLabel.text = category.title;
+        cell.textLabel.textColor = [UIColor whiteColor];
         if (category.unread) {
             UILabel * label = [UILabel new];
             label.text = [NSString stringWithFormat:@"%d", category.unread];
@@ -75,6 +77,11 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    TTRSSCategory * category = _categories[indexPath.row];
+    NSDictionary *userInfo = [NSDictionary dictionaryWithObject:[NSNumber numberWithInt:category.identifier] forKey:@"category"];
+
+    [[NSNotificationCenter defaultCenter] postNotificationName:KUpdateFeedOnCategory object:nil userInfo:userInfo];
+    
     [self.slideNavigationViewController slideWithDirection:MWFSlideDirectionNone];
 }
 

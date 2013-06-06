@@ -10,27 +10,7 @@
 #import "TTRSSJSonParser.h"
 
 
-typedef NS_ENUM(NSInteger, ViewMode) {
-    ViewMode_all_articles,
-    ViewMode_unread,
-    ViewMode_adaptive,
-    ViewMode_marked,
-    ViewMode_updated
-};
-typedef NS_ENUM(NSInteger, SortMode) {
-    SortMode_date_reverse,
-    SortMode_feed_dates,
-    SortMode_default
-
-};
-typedef NS_ENUM(NSInteger, SpecialIds) {
-    SpecialIds_starred = -1,
-    SpecialIds_published = -2,
-    SpecialIds_fresh = -3,
-    SpecialIds_all_articles = -4,
-    SpecialIds_archived = 0
-};
-
+NSString * const KUpdateFeedOnCategory=@"notification.updateFeed.Category";
 
 @interface TTRSSFeedsManager()
 {
@@ -39,6 +19,16 @@ typedef NS_ENUM(NSInteger, SpecialIds) {
 @end
 
 @implementation TTRSSFeedsManager
+
++(TTRSSFeedsManager *) shareFeedManager
+{
+    static TTRSSFeedsManager * feedManager;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        feedManager = [TTRSSFeedsManager new];
+    });
+    return feedManager;
+}
 
 -(NSString * )sortMode:(SortMode) mode
 {
@@ -75,6 +65,15 @@ typedef NS_ENUM(NSInteger, SpecialIds) {
             break;
     }
 }
+-(void) getUnreadHeadlines:(int) start andLimit:(int) limit category:(int) category onSuccess:(void(^)(NSArray *)) block
+{
+    [self getHeadlines:start andLimit:limit category:category mode:ViewMode_unread withContent:false onSuccess:block];
+}
+
+-(void) getAllHeadlines:(int) start andLimit:(int) limit category:(int) category onSuccess:(void(^)(NSArray *)) block
+{
+    [self getHeadlines:start andLimit:limit category:category mode:ViewMode_all_articles withContent:false onSuccess:block];
+}
 
 -(void) getHeadlines:(int) start andLimit:(int) limit category:(int) category mode:(ViewMode) mode withContent:(bool) content onSuccess:(void(^)(NSArray *)) block
 {
@@ -96,19 +95,9 @@ typedef NS_ENUM(NSInteger, SpecialIds) {
     };
     
     [TTRSSJSonParser newWithDictionary:dic onRequestSuccessfull:^(NSDictionary * dic) {
-        NSMutableArray * _feeds = [NSMutableArray new];
-        NSLog(@"%@",dic);
-        /*
-        for (NSDictionary * categoryDic in dic[@"content"]) {
-            TTRSSCategory * category = [TTRSSCategory new];
-            category.order_id   = [categoryDic[@"order_id"] integerValue];
-            category.identifier = [categoryDic[@"id"] integerValue];
-            category.title      = categoryDic[@"title"];
-            category.unread     = [categoryDic[@"unread"] integerValue];
-            [_categories addObject:category];
-         }
-         */
-        (block)(_feeds);
+        if (dic[@"content"] && [dic[@"content"] isKindOfClass:[NSArray class]]) {
+            (block)(dic[@"content"]);
+        }
     }];
 
  }

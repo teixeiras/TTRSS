@@ -19,7 +19,6 @@
 		8028E973175FEA37008E1375 /* grayArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8028E937175FEA37008E1375 /* grayArrow@2x.png */; };
 		8028E974175FEA37008E1375 /* whiteArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 8028E938175FEA37008E1375 /* whiteArrow.png */; };
 		8028E975175FEA37008E1375 /* whiteArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8028E939175FEA37008E1375 /* whiteArrow@2x.png */; };
-		8028E976175FEA37008E1375 /* README in Resources */ = {isa = PBXBuildFile; fileRef = 8028E93A175FEA37008E1375 /* README */; };
 		8028E977175FEA37008E1375 /* MWFSlideNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8028E93D175FEA37008E1375 /* MWFSlideNavigationViewController.m */; };
 		8028E97D175FEAC9008E1375 /* TTRSSSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8028E97C175FEAC9008E1375 /* TTRSSSettingsViewController.m */; };
 		8028E980175FEE0C008E1375 /* TTRSSCategoriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8028E97F175FEE0C008E1375 /* TTRSSCategoriesViewController.m */; };
@@ -61,7 +60,6 @@
 		8028E937175FEA37008E1375 /* grayArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "grayArrow@2x.png"; sourceTree = "<group>"; };
 		8028E938175FEA37008E1375 /* whiteArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = whiteArrow.png; sourceTree = "<group>"; };
 		8028E939175FEA37008E1375 /* whiteArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "whiteArrow@2x.png"; sourceTree = "<group>"; };
-		8028E93A175FEA37008E1375 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
 		8028E93C175FEA37008E1375 /* MWFSlideNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWFSlideNavigationViewController.h; sourceTree = "<group>"; };
 		8028E93D175FEA37008E1375 /* MWFSlideNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWFSlideNavigationViewController.m; sourceTree = "<group>"; };
 		8028E97B175FEAC9008E1375 /* TTRSSSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTRSSSettingsViewController.h; sourceTree = "<group>"; };
@@ -120,7 +118,6 @@
 			isa = PBXGroup;
 			children = (
 				8028E92C175FEA37008E1375 /* EGOTableViewPullRefresh */,
-				8028E93A175FEA37008E1375 /* README */,
 			);
 			path = EGOTableViewPullRefresh;
 			sourceTree = "<group>";
@@ -457,7 +454,6 @@
 				8028E973175FEA37008E1375 /* grayArrow@2x.png in Resources */,
 				8028E974175FEA37008E1375 /* whiteArrow.png in Resources */,
 				8028E975175FEA37008E1375 /* whiteArrow@2x.png in Resources */,
-				8028E976175FEA37008E1375 /* README in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
