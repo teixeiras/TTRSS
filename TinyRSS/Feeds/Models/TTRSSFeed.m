@@ -9,5 +9,6 @@
 #import "TTRSSFeed.h"
 
 @implementation TTRSSFeed
-
+{
+}
 @end
