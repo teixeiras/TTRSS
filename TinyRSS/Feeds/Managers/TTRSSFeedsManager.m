@@ -9,9 +9,8 @@
 #import "TTRSSFeedsManager.h"
 #import "TTRSSJSonParser.h"
 
-
-NSString * const KUpdateFeedOnCategory=@"notification.updateFeed.Category";
-
+NSString * const KUpdateFeedOnCategoryNotification=@"notification.updateFeed.Category";
+NSString * const kShowFeedNotification =@"notification.getArticle.identifier";
 @interface TTRSSFeedsManager()
 {
     NSMutableArray * feeds;
@@ -96,9 +95,53 @@ NSString * const KUpdateFeedOnCategory=@"notification.updateFeed.Category";
     
     [TTRSSJSonParser newWithDictionary:dic onRequestSuccessfull:^(NSDictionary * dic) {
         if (dic[@"content"] && [dic[@"content"] isKindOfClass:[NSArray class]]) {
-            (block)(dic[@"content"]);
+            NSMutableArray * array = [NSMutableArray new];
+            for (NSDictionary *feedDic in dic[@"content"]) {
+                [array addObject:[self populateFeed:feedDic]];
+            }
+            (block)(array);
         }
     }];
 
  }
+-(void) getArticle:(int) identifier onSuccess:(void(^)(TTRSSFeed *)) block
+{
+    NSDictionary * dic = @{
+                           @"op"                 :@"getArticle",
+                           @"article_id"         :[NSString stringWithFormat:@"%d", identifier]
+                           };
+    
+    [TTRSSJSonParser newWithDictionary:dic onRequestSuccessfull:^(NSDictionary * dic) {
+        
+        if (dic[@"content"] && [dic[@"content"] isKindOfClass:[NSArray class]]) {
+            (block)([self populateFeed:dic[@"content"][0]]);
+        }
+    }];
+    
+}
+
+-(TTRSSFeed *) populateFeed:(NSDictionary *) feed
+{
+    TTRSSFeed * tmpFeed = [TTRSSFeed  new];
+    tmpFeed.always_display_attachments = [feed[@"_always_display_attachments"] integerValue];
+    tmpFeed.author = feed[@"author"];
+    tmpFeed.comments_count = [feed[@"comments_count"] integerValue];
+    tmpFeed.comments_link = feed[@"comments_link"];
+    tmpFeed.excerpt = feed[@"excerpt"];
+    tmpFeed.feed_id = [feed[@"feed_id"] integerValue];
+    tmpFeed.feed_title = feed[@"feed_title"];
+    tmpFeed.identifier = [feed[@"id"] integerValue];
+    tmpFeed.is_updated = [feed[@"is_updated"] integerValue];
+    tmpFeed.labels = feed[@"labels"];
+    tmpFeed.link = feed[@"link"];
+    tmpFeed.marked = [feed[@"marked"] integerValue];
+    tmpFeed.published = [feed[@"published"] integerValue];
+    tmpFeed.score = [feed[@"score"] integerValue];
+    tmpFeed.tags = feed[@"tags"];
+    tmpFeed.title = feed[@"title"];
+    tmpFeed.unread = [feed[@"unread"] integerValue];
+    tmpFeed.updated = [feed[@"updated"] integerValue];
+    tmpFeed.content =feed[@"content"];
+    return tmpFeed;
+}
 @end

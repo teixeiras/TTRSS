@@ -27,4 +27,6 @@
 @property NSString    * title;
 @property bool        unread;
 @property int         updated;
+@property NSString    * content;
+
 @end

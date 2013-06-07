@@ -80,7 +80,7 @@
     TTRSSCategory * category = _categories[indexPath.row];
     NSDictionary *userInfo = [NSDictionary dictionaryWithObject:[NSNumber numberWithInt:category.identifier] forKey:@"category"];
 
-    [[NSNotificationCenter defaultCenter] postNotificationName:KUpdateFeedOnCategory object:nil userInfo:userInfo];
+    [[NSNotificationCenter defaultCenter] postNotificationName:KUpdateFeedOnCategoryNotification object:nil userInfo:userInfo];
     
     [self.slideNavigationViewController slideWithDirection:MWFSlideDirectionNone];
 }

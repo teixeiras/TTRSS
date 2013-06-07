@@ -28,6 +28,7 @@
     NSString    * _title;
     bool        _unread;
     int         _updated;
+    NSString    * content;
 }
 @synthesize always_display_attachments = _always_display_attachments;
 @synthesize author = _author;
@@ -47,4 +48,5 @@
 @synthesize title = _title;
 @synthesize unread = _unread;
 @synthesize updated = _updated;
+@synthesize content = _content;
 @end

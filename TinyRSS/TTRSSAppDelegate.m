@@ -21,10 +21,11 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        TTRSSMainViewViewController *masterViewController = [TTRSSMainViewViewController new]; 
-        self.navigationController = [[UINavigationController alloc] initWithRootViewController:masterViewController];
+        TTRSSMainViewViewController *masterViewController = [TTRSSMainViewViewController new];
+        UINavigationController * navCtl = [[UINavigationController alloc] initWithRootViewController:masterViewController];
+
         
-        MWFSlideNavigationViewController * ctl = [[MWFSlideNavigationViewController alloc] initWithRootViewController:masterViewController];
+        MWFSlideNavigationViewController * ctl = [[MWFSlideNavigationViewController alloc] initWithRootViewController:navCtl];
         ctl.panEnabled = YES;
 
         self.window.rootViewController = ctl;

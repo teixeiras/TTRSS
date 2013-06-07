@@ -8,12 +8,14 @@
 #import "TTRSSCategoriesViewController.h"
 #import "TTRSSMainViewViewController.h"
 #import "TTRSSSettingsViewController.h"
+#import "TTRSSFeedViewerViewController.h"
 #import "TTRSSFeedsManager.h"
 #import "TTRSSFeed.h"
 
 @interface TTRSSMainViewViewController ()
 {
     NSMutableArray * _feeds;
+    TTRSSFeedViewerViewController * _feedViewer;
 }
 @end
 
@@ -23,7 +25,8 @@
 {
     self = [super initWithStyle:style];
     if (self) {
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateFeedFromCategory:) name:KUpdateFeedOnCategory object:nil];
+        _feedViewer = [TTRSSFeedViewerViewController new];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateFeedFromCategory:) name:KUpdateFeedOnCategoryNotification object:nil];
          }
     return self;
 }
@@ -34,26 +37,7 @@
     [[TTRSSFeedsManager shareFeedManager] getUnreadHeadlines:0 andLimit:50 category:category onSuccess:^(NSArray * feeds) {
         _feeds = [NSMutableArray new];
         for(NSDictionary * feed in feeds) {
-            TTRSSFeed * tmpFeed = [TTRSSFeed  new];
-            tmpFeed.always_display_attachments = [feed[@"_always_display_attachments"] integerValue];
-            tmpFeed.author = feed[@"author"];
-            tmpFeed.comments_count = [feed[@"comments_count"] integerValue];;
-            tmpFeed.comments_link = feed[@"comments_link"];
-            tmpFeed.excerpt = feed[@"excerpt"];
-            tmpFeed.feed_id = [feed[@"feed_id"] integerValue];;
-            tmpFeed.feed_title = feed[@"feed_title"];
-            tmpFeed.identifier = [feed[@"id"] integerValue];;
-            tmpFeed.is_updated = [feed[@"is_updated"] integerValue];;
-            tmpFeed.labels = feed[@"labels"];
-            tmpFeed.link = feed[@"link"];
-            tmpFeed.marked = [feed[@"marked"] integerValue];;
-            tmpFeed.published = [feed[@"published"] integerValue];;
-            tmpFeed.score = [feed[@"score"] integerValue];;
-            tmpFeed.tags = feed[@"tags"];
-            tmpFeed.title = feed[@"title"];
-            tmpFeed.unread = [feed[@"unread"] integerValue];;
-            tmpFeed.updated = [feed[@"updated"] integerValue];;
-            [_feeds addObject:tmpFeed];
+            [_feeds addObject:feed];
         }
         [self.tableView reloadData];
         
@@ -84,11 +68,7 @@
     [self.navigationController pushViewController:[TTRSSSettingsViewController new] animated:true];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+
 
 - (NSInteger) slideNavigationViewController:(MWFSlideNavigationViewController *)controller
                    distanceForSlideDirecton:(MWFSlideDirection)direction
@@ -144,7 +124,12 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
- 
+    [self.navigationController pushViewController:_feedViewer animated:true];
+    TTRSSFeed * feed = _feeds[indexPath.row];
+
+    NSDictionary *userInfo = [NSDictionary dictionaryWithObject:[NSNumber numberWithInt:feed.identifier] forKey:@"feedId"];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:kShowFeedNotification object:nil userInfo:userInfo];
 }
 
 @end

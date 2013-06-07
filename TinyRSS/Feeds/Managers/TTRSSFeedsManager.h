@@ -7,7 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-extern NSString * const KUpdateFeedOnCategory;
+#import "TTRSSFeed.h"
+
+extern NSString * const KUpdateFeedOnCategoryNotification;
+extern NSString * const kShowFeedNotification;
 typedef NS_ENUM(NSInteger, ViewMode) {
     ViewMode_all_articles,
     ViewMode_unread,
@@ -36,5 +39,5 @@ typedef NS_ENUM(NSInteger, SpecialIds) {
 -(void) getUnreadHeadlines:(int) start andLimit:(int) limit category:(int) category onSuccess:(void(^)(NSArray *)) block;
 
 -(void) getAllHeadlines:(int) start andLimit:(int) limit category:(int) category onSuccess:(void(^)(NSArray *)) block;
-
+-(void) getArticle:(int) identifier onSuccess:(void(^)(TTRSSFeed *)) block;
 @end
