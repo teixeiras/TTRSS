@@ -13,10 +13,23 @@ NSMutableDictionary * configs;
 
 +(void) initialize
 {
+    ;
     configs = [NSMutableDictionary new];
-    configs[@"server"]      = @"http://rss.fteixeira.org/api/";
-    configs[@"user"]        = @"demo";
-    configs[@"password"]    = @"demodemo";
+    if ([[NSUserDefaults standardUserDefaults] valueForKey:@"server"]) {
+        configs[@"server"]      = [[NSUserDefaults standardUserDefaults] stringForKey:@"server"];
+    } else {
+        configs[@"server"]      = @"";
+    }
+    if ([[NSUserDefaults standardUserDefaults] valueForKey:@"user"]) {
+        configs[@"user"]      = [[NSUserDefaults standardUserDefaults] stringForKey:@"use"];
+    } else {
+        configs[@"user"]      = @"";
+    }
+    if ([[NSUserDefaults standardUserDefaults] valueForKey:@"password"]) {
+        configs[@"password"]      = [[NSUserDefaults standardUserDefaults] stringForKey:@"password"];
+    } else {
+        configs[@"password"]      = @"";
+    }
 }
 
 +(NSString *) getConfigValue:(NSString *) config

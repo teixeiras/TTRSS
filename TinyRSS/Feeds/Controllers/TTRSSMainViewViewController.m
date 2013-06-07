@@ -34,14 +34,39 @@
 -(void) updateFeedFromCategory:(NSNotification *)notification
 {
     int category = [[[notification userInfo] valueForKey:@"category"] intValue];
-    [[TTRSSFeedsManager shareFeedManager] getUnreadHeadlines:0 andLimit:50 category:category onSuccess:^(NSArray * feeds) {
-        _feeds = [NSMutableArray new];
+    void(^updateTable)(NSArray *) = ^(NSArray * feeds) {
+          _feeds = [NSMutableArray new];
         for(NSDictionary * feed in feeds) {
             [_feeds addObject:feed];
         }
         [self.tableView reloadData];
+    };
+    self.navigationItem.title = [[notification userInfo] valueForKey:@"title"];
+    if (category < 0) {
+        switch (category) {
+            case -1:
+                [[TTRSSFeedsManager shareFeedManager] getPublishedHeadlines:0 andLimit:50 onSuccess:updateTable];
+                break;
+            case -2:
+                [[TTRSSFeedsManager shareFeedManager] getStarredHeadlines:0 andLimit:50 onSuccess:updateTable];
+
+                break;
+            case -3:
+                [[TTRSSFeedsManager shareFeedManager] getFreshHeadlines:0 andLimit:50 onSuccess:updateTable];
+                break;
+            case -4:
+                [[TTRSSFeedsManager shareFeedManager] getAllArticlesHeadlines:0 andLimit:50 onSuccess:updateTable];
+                break;
+            default:
+                //label
+                break;
+        }
+    } else {
+        [[TTRSSFeedsManager shareFeedManager] getUnreadHeadlines:0 andLimit:50 category:category onSuccess:updateTable];
         
-    }];
+    }
+    
+
 }
 
 - (void)viewDidLoad

@@ -64,6 +64,28 @@ NSString * const kShowFeedNotification =@"notification.getArticle.identifier";
             break;
     }
 }
+
+-(void) getAllArticlesHeadlines:(int) start andLimit:(int) limit  onSuccess:(void(^)(NSArray *)) block
+{
+    [self getHeadlines:start andLimit:limit category:-4 mode:ViewMode_unread withContent:false onSuccess:block];
+}
+
+-(void) getFreshHeadlines:(int) start andLimit:(int) limit  onSuccess:(void(^)(NSArray *)) block
+{
+    [self getHeadlines:start andLimit:limit category:-3 mode:ViewMode_unread withContent:false onSuccess:block];
+}
+
+-(void) getPublishedHeadlines:(int) start andLimit:(int) limit  onSuccess:(void(^)(NSArray *)) block
+{
+    [self getHeadlines:start andLimit:limit category:-2 mode:ViewMode_unread withContent:false onSuccess:block];
+}
+
+
+-(void) getStarredHeadlines:(int) start andLimit:(int) limit  onSuccess:(void(^)(NSArray *)) block
+{
+    [self getHeadlines:start andLimit:limit category:-1 mode:ViewMode_unread withContent:false onSuccess:block];
+}
+
 -(void) getUnreadHeadlines:(int) start andLimit:(int) limit category:(int) category onSuccess:(void(^)(NSArray *)) block
 {
     [self getHeadlines:start andLimit:limit category:category mode:ViewMode_unread withContent:false onSuccess:block];
@@ -107,8 +129,8 @@ NSString * const kShowFeedNotification =@"notification.getArticle.identifier";
 -(void) getArticle:(int) identifier onSuccess:(void(^)(TTRSSFeed *)) block
 {
     NSDictionary * dic = @{
-                           @"op"                 :@"getArticle",
-                           @"article_id"         :[NSString stringWithFormat:@"%d", identifier]
+                           @"op"         :@"getArticle",
+                           @"article_id" :[NSString stringWithFormat:@"%d", identifier]
                            };
     
     [TTRSSJSonParser newWithDictionary:dic onRequestSuccessfull:^(NSDictionary * dic) {
@@ -116,6 +138,20 @@ NSString * const kShowFeedNotification =@"notification.getArticle.identifier";
         if (dic[@"content"] && [dic[@"content"] isKindOfClass:[NSArray class]]) {
             (block)([self populateFeed:dic[@"content"][0]]);
         }
+    }];
+    
+}
+
+-(void) markReadArticle:(int) article
+{
+    NSDictionary * dic = @{
+                           @"op"       :@"catchupFeed",
+                           @"feed_id"  :[NSString stringWithFormat:@"%d", article],
+                           @"is_cat"   :[NSString stringWithFormat:@"%d", 1]
+                           };
+    
+    [TTRSSJSonParser newWithDictionary:dic onRequestSuccessfull:^(NSDictionary * dic) {
+        
     }];
     
 }

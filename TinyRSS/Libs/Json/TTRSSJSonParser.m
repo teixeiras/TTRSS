@@ -38,7 +38,7 @@ static NSString        * _session_id;
         }
         
         _responseData = [NSMutableData new];
-        NSString * urlString = [NSString stringWithFormat:@"%@",[TTRSSConfig getConfigValue:@"server"]];
+        NSString * urlString = [NSString stringWithFormat:@"%@/api/",[TTRSSConfig getConfigValue:@"server"]];
 
         NSURL *url = [NSURL URLWithString:urlString];
 

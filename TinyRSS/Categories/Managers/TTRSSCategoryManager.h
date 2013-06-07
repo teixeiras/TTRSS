@@ -8,8 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "TTRSSCategory.h"
-
+#import "TTRSSCounters.h"
 @interface TTRSSCategoryManager : NSObject
 +(TTRSSCategoryManager *) shareCategoryManager;
 -(NSArray *) retrieveCategoriesWithBlock:(void(^)(NSArray *)) onRetrieve;
+-(void)counters:(void(^)(NSDictionary *)) onRetrieve;
 @end

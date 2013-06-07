@@ -26,6 +26,10 @@
 		8028E986175FFC66008E1375 /* TTRSSFeed.m in Sources */ = {isa = PBXBuildFile; fileRef = 8028E985175FFC66008E1375 /* TTRSSFeed.m */; };
 		8028E98A1761BFE1008E1375 /* TTRSSFeedViewerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8028E9881761BFE1008E1375 /* TTRSSFeedViewerViewController.m */; };
 		8028E98D1761BFF4008E1375 /* TTRSSFeedViewerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8028E98C1761BFF4008E1375 /* TTRSSFeedViewerViewController.xib */; };
+		8028E99117626EF7008E1375 /* TTRSSFeedViewTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8028E99017626EF7008E1375 /* TTRSSFeedViewTableCell.m */; };
+		8028E99317626F0C008E1375 /* TTRSSFeedViewTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8028E99217626F0C008E1375 /* TTRSSFeedViewTableCell.xib */; };
+		8028E99617628A05008E1375 /* TTRSSCounters.m in Sources */ = {isa = PBXBuildFile; fileRef = 8028E99517628A05008E1375 /* TTRSSCounters.m */; };
+		8028E9991762A019008E1375 /* TTRSSSettingsTextFieldCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8028E9981762A019008E1375 /* TTRSSSettingsTextFieldCell.xib */; };
 		80BE6B48175D5B64004212FB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80BE6B47175D5B64004212FB /* UIKit.framework */; };
 		80BE6B4A175D5B64004212FB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80BE6B49175D5B64004212FB /* Foundation.framework */; };
 		80BE6B4C175D5B64004212FB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80BE6B4B175D5B64004212FB /* CoreGraphics.framework */; };
@@ -75,6 +79,12 @@
 		8028E9871761BFE1008E1375 /* TTRSSFeedViewerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTRSSFeedViewerViewController.h; sourceTree = "<group>"; };
 		8028E9881761BFE1008E1375 /* TTRSSFeedViewerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTRSSFeedViewerViewController.m; sourceTree = "<group>"; };
 		8028E98C1761BFF4008E1375 /* TTRSSFeedViewerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TTRSSFeedViewerViewController.xib; sourceTree = "<group>"; };
+		8028E98F17626EF7008E1375 /* TTRSSFeedViewTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTRSSFeedViewTableCell.h; sourceTree = "<group>"; };
+		8028E99017626EF7008E1375 /* TTRSSFeedViewTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTRSSFeedViewTableCell.m; sourceTree = "<group>"; };
+		8028E99217626F0C008E1375 /* TTRSSFeedViewTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TTRSSFeedViewTableCell.xib; sourceTree = "<group>"; };
+		8028E99417628A05008E1375 /* TTRSSCounters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTRSSCounters.h; sourceTree = "<group>"; };
+		8028E99517628A05008E1375 /* TTRSSCounters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTRSSCounters.m; sourceTree = "<group>"; };
+		8028E9981762A019008E1375 /* TTRSSSettingsTextFieldCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TTRSSSettingsTextFieldCell.xib; sourceTree = "<group>"; };
 		80BE6B44175D5B64004212FB /* TinyRSS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TinyRSS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		80BE6B47175D5B64004212FB /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		80BE6B49175D5B64004212FB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -177,6 +187,24 @@
 			path = Slider;
 			sourceTree = "<group>";
 		};
+		8028E98E17626EAC008E1375 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				8028E98F17626EF7008E1375 /* TTRSSFeedViewTableCell.h */,
+				8028E99017626EF7008E1375 /* TTRSSFeedViewTableCell.m */,
+				8028E99217626F0C008E1375 /* TTRSSFeedViewTableCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		8028E9971762A000008E1375 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				8028E9981762A019008E1375 /* TTRSSSettingsTextFieldCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		80BE6B3B175D5B64004212FB = {
 			isa = PBXGroup;
 			children = (
@@ -270,6 +298,8 @@
 			children = (
 				8028E8D9175FE917008E1375 /* TTRSSCategory.h */,
 				8028E8DA175FE917008E1375 /* TTRSSCategory.m */,
+				8028E99417628A05008E1375 /* TTRSSCounters.h */,
+				8028E99517628A05008E1375 /* TTRSSCounters.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -324,6 +354,7 @@
 		80BE6CA9175F1FC4004212FB /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				8028E98E17626EAC008E1375 /* Cells */,
 				8028E98C1761BFF4008E1375 /* TTRSSFeedViewerViewController.xib */,
 				80BE6CAA175F1FC4004212FB /* TTRSSMainViewViewController.xib */,
 			);
@@ -392,6 +423,7 @@
 		80BE6CB9175F1FC4004212FB /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				8028E9971762A000008E1375 /* Cells */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -463,6 +495,8 @@
 				8028E974175FEA37008E1375 /* whiteArrow.png in Resources */,
 				8028E975175FEA37008E1375 /* whiteArrow@2x.png in Resources */,
 				8028E98D1761BFF4008E1375 /* TTRSSFeedViewerViewController.xib in Resources */,
+				8028E99317626F0C008E1375 /* TTRSSFeedViewTableCell.xib in Resources */,
+				8028E9991762A019008E1375 /* TTRSSSettingsTextFieldCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -490,6 +524,8 @@
 				8028E983175FFC4C008E1375 /* TTRSSFeedsManager.m in Sources */,
 				8028E986175FFC66008E1375 /* TTRSSFeed.m in Sources */,
 				8028E98A1761BFE1008E1375 /* TTRSSFeedViewerViewController.m in Sources */,
+				8028E99117626EF7008E1375 /* TTRSSFeedViewTableCell.m in Sources */,
+				8028E99617628A05008E1375 /* TTRSSCounters.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -39,5 +39,18 @@ typedef NS_ENUM(NSInteger, SpecialIds) {
 -(void) getUnreadHeadlines:(int) start andLimit:(int) limit category:(int) category onSuccess:(void(^)(NSArray *)) block;
 
 -(void) getAllHeadlines:(int) start andLimit:(int) limit category:(int) category onSuccess:(void(^)(NSArray *)) block;
+
 -(void) getArticle:(int) identifier onSuccess:(void(^)(TTRSSFeed *)) block;
+
+-(void) markReadArticle:(int) article;
+
+
+-(void) getAllArticlesHeadlines:(int) start andLimit:(int) limit  onSuccess:(void(^)(NSArray *)) block;
+
+-(void) getFreshHeadlines:(int) start andLimit:(int) limit  onSuccess:(void(^)(NSArray *)) block;
+
+-(void) getPublishedHeadlines:(int) start andLimit:(int) limit  onSuccess:(void(^)(NSArray *)) block;
+
+-(void) getStarredHeadlines:(int) start andLimit:(int) limit  onSuccess:(void(^)(NSArray *)) block;
+
 @end
