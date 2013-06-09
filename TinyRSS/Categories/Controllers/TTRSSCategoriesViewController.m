@@ -38,9 +38,6 @@
         self.view.backgroundColor = [UIColor blackColor];
         self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         
-         
-        [self.tableView reloadData];
-
     }
     return self;
 }
@@ -48,13 +45,22 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    _categories = [[TTRSSCategoryManager shareCategoryManager ] categories];
+    [self.tableView reloadData];
+
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    
     [[TTRSSCategoryManager shareCategoryManager ]counters:^(NSDictionary * elements){
-        _counters = elements;
-        _categories = [[TTRSSCategoryManager shareCategoryManager] retrieveCategoriesWithBlock:^(NSArray * categories) {
-            _categories = categories;
-            [self.tableView reloadData];
-        }];
-    }];
+         _counters = elements;
+
+        [[TTRSSCategoryManager shareCategoryManager] retrieveCategoriesWithBlock:^(NSArray * categories) {
+             _categories = categories;
+             [self.tableView reloadData];
+         }];
+     }];
 }
 
 #pragma mark - Table view data source

@@ -78,7 +78,7 @@ static NSString        * _session_id;
 
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
-    NSDictionary * result = [self parse:_responseData];
+    NSDictionary * result = [TTRSSJSonParser parse:_responseData];
     if (result[@"content"] &&
         ![result[@"content"] isKindOfClass:[NSArray class]] &&
         result[@"content"][@"error"] &&
@@ -109,12 +109,61 @@ static NSString        * _session_id;
         }];
 
     } else {
-        (_onRequestSuccessfull)([self parse:_responseData]);
+        (_onRequestSuccessfull)([TTRSSJSonParser parse:_responseData]);
     }
     
 }
 
--(NSDictionary *) parse:(NSData *) requestResponse
++(bool) isValidLogin:(NSString *) user password:(NSString *) password server:(NSString *)server
+{
+    NSMutableURLRequest     * _request;
+    
+    NSString * urlString = [NSString stringWithFormat:@"%@/api/",server];
+    
+    NSURL *url = [NSURL URLWithString:urlString];
+    
+    _request = [NSMutableURLRequest requestWithURL:url];//asynchronous call
+    
+    [_request setHTTPMethod:@"POST"];
+    
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:
+                            @{
+                                @"op":@"login",
+                                @"user":user,
+                                @"password":password
+                            }
+                            options:NSJSONWritingPrettyPrinted
+                            error:nil];
+    
+    [_request setHTTPBody:jsonData];
+    
+    [_request setValue:@"*/*" forHTTPHeaderField:@"Accept"];
+    
+    [_request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    
+    NSError *requestError;
+    NSURLResponse *urlResponse = nil;
+    NSData *response = [NSURLConnection sendSynchronousRequest:_request returningResponse:&urlResponse error:&requestError];
+    if (response == nil) {
+        if (requestError != nil) {
+            return false;
+        }
+    }
+    if (!response) {
+        return false;
+    }
+    NSDictionary * result = [TTRSSJSonParser parse:response];
+    
+    if (result[@"content"] &&
+       ![result[@"content"] isKindOfClass:[NSArray class]] &&
+       result[@"content"][@"error"]) {
+        return false;
+    }
+    return true;
+
+
+}
++(NSDictionary *) parse:(NSData *) requestResponse
 {
     NSError *error = nil;
     id object = [NSJSONSerialization

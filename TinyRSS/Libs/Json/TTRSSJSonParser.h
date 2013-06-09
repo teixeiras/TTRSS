@@ -12,6 +12,7 @@
 
 +(id) newWithDictionary:(NSDictionary *) param onRequestSuccessfull: (void(^)(NSDictionary *))onRequestSuccessfull;
 
++(bool) isValidLogin:(NSString *) user password:(NSString *) password server:(NSString *)server;
 
 -(id) initWithDictionary:(NSDictionary *) param onRequestSuccessfull: (void(^)(NSDictionary *))onRequestSuccessfull;
 @end

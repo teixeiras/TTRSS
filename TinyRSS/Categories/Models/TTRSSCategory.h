@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "TTRSSCategoryCData.h"
 
 @interface TTRSSCategory : NSObject
 
@@ -14,5 +15,6 @@
 @property     int order_id;
 @property     NSString * title;
 @property     int unread;
-
+-(id) initWithCoreData:(TTRSSCategoryCData *) data;
+-(void) store;
 @end

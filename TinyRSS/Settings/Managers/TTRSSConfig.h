@@ -10,4 +10,5 @@
 
 @interface TTRSSConfig : NSObject
 +(NSString *) getConfigValue:(NSString *) config;
++(bool) validConfig;
 @end

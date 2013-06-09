@@ -21,7 +21,7 @@ NSMutableDictionary * configs;
         configs[@"server"]      = @"";
     }
     if ([[NSUserDefaults standardUserDefaults] valueForKey:@"user"]) {
-        configs[@"user"]      = [[NSUserDefaults standardUserDefaults] stringForKey:@"use"];
+        configs[@"user"]      = [[NSUserDefaults standardUserDefaults] stringForKey:@"user"];
     } else {
         configs[@"user"]      = @"";
     }
@@ -32,6 +32,14 @@ NSMutableDictionary * configs;
     }
 }
 
++(bool) validConfig
+{
+    if ([configs[@"server"] isEqualToString:@""] ||[configs[@"user"] isEqualToString:@""] ||[configs[@"password"] isEqualToString:@""] )
+    {
+        return false;
+    }
+    return true;
+}
 +(NSString *) getConfigValue:(NSString *) config
 {
     return configs[config];

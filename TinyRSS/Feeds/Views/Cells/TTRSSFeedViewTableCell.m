@@ -12,15 +12,21 @@
 @implementation TTRSSFeedViewTableCell
 {
     TTRSSFeed * _feed;
-    IBOutlet    UIView * cellContent;
+    IBOutlet    UIView  * _cellContent;
     IBOutlet    UILabel * _title;
-    IBOutlet    UILabel * _resume;
+    IBOutlet    UILabel * _source;
 }
-- (id)init
+
+@synthesize title = _title;
+@synthesize source = _source;
+
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
-    self = [super init];
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         [[NSBundle mainBundle] loadNibNamed:@"TTRSSFeedViewTableCell" owner:self options:nil];
+        [self.contentView addSubview:_cellContent];
+        _cellContent.frame = self.frame;
     }
     return self;
 }
@@ -32,7 +38,7 @@
     }
     _feed = feed;
     _title.text = feed.title;
-    _resume.text = feed.excerpt;
+    _source.text = feed.feed_title;
 }
 
 @end

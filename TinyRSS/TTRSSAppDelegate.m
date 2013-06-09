@@ -6,36 +6,58 @@
 //  Copyright (c) 2013 Filipe Teixeira. All rights reserved.
 //
 #import "MWFSlideNavigationViewController.h"
+#import "TTRSSLaunchScreenViewController.h"
 #import "TTRSSMainViewViewController.h"
+#import "TTRSSCategoryManager.h"
 #import "TTRSSAppDelegate.h"
-#import "TTRSSJSonParser.h"
+#import "TTRSSConfig.h"
 
+TTRSSAppDelegate * _instance;
 @implementation TTRSSAppDelegate
 
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
++ (id)instance
+{
+    return _instance;
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    _instance = self;
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        TTRSSMainViewViewController *masterViewController = [TTRSSMainViewViewController new];
-        UINavigationController * navCtl = [[UINavigationController alloc] initWithRootViewController:masterViewController];
-
+        if (![TTRSSConfig validConfig]) {
+           TTRSSLaunchScreenViewController * controller = [[TTRSSLaunchScreenViewController alloc] initWithBlockOnSuccess:^(){
+                [self loadController];
+            }];
+            self.window.rootViewController = controller;
+        } else {
+            [self loadController];
+        }
         
-        MWFSlideNavigationViewController * ctl = [[MWFSlideNavigationViewController alloc] initWithRootViewController:navCtl];
-        ctl.panEnabled = YES;
-
-        self.window.rootViewController = ctl;
         
     }
  
     [self.window makeKeyAndVisible];
     return YES;
 }
+-(void) loadController
+{
+    [[TTRSSCategoryManager shareCategoryManager]loadCategories];
+    
+    TTRSSMainViewViewController *masterViewController = [TTRSSMainViewViewController new];
+    UINavigationController * navCtl = [[UINavigationController alloc] initWithRootViewController:masterViewController];
+    
+    
+    MWFSlideNavigationViewController * ctl = [[MWFSlideNavigationViewController alloc] initWithRootViewController:navCtl];
+    ctl.panEnabled = YES;
+    
+    self.window.rootViewController = ctl;
 
+}
 - (void)applicationWillResignActive:(UIApplication *)application
 {
 

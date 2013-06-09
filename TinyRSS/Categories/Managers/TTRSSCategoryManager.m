@@ -7,6 +7,8 @@
 //
 
 #import "TTRSSCategoryManager.h"
+#import "TTRSSAppDelegate.h"
+
 #import "TTRSSJSonParser.h"
 @interface TTRSSCategoryManager()
 {
@@ -14,7 +16,7 @@
 }
 @end
 @implementation TTRSSCategoryManager
-
+@synthesize categories = _categories;
 +(TTRSSCategoryManager *) shareCategoryManager
 {
     static TTRSSCategoryManager * categoryManager;
@@ -29,7 +31,7 @@
 {
     self = [super init];
     if (self) {
-        
+        _categories = [NSMutableArray new];
     }
     return self;
 }
@@ -56,10 +58,29 @@
     }];
 }
 
+-(void) loadCategories
+{
+    NSManagedObjectContext *context = [[TTRSSAppDelegate instance] managedObjectContext];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"TTRSSCategoryCData"
+                                              inManagedObjectContext:context];
+    [fetchRequest setEntity:entity];
+    NSError * error;
+    @synchronized(_categories) {
+        _categories = [NSMutableArray new];
+        NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
+        for (TTRSSCategoryCData *info in fetchedObjects) {
+            [_categories addObject:[[TTRSSCategory alloc] initWithCoreData:info]];
+        }
+    }
+    
+}
 
 -(NSArray *) retrieveCategoriesWithBlock:(void(^)(NSArray *)) onRetrieve
 {    
     [TTRSSJSonParser newWithDictionary:@{@"op":@"getCategories"} onRequestSuccessfull:^(NSDictionary * dic) {
+        @synchronized(_categories) {
+            [self deleteAllObjects:@"TTRSSCategoryCData"];
         _categories = [NSMutableArray new];
         if (dic[@"content"] && [dic[@"content"] isKindOfClass:[NSArray class]]) {
             for (NSDictionary * categoryDic in dic[@"content"]) {
@@ -69,11 +90,30 @@
                 category.title      =  categoryDic[@"title"];
                 category.unread     = [categoryDic[@"unread"] integerValue];
                 [_categories addObject:category];
+                [category store];
             }
         }
         (onRetrieve)(_categories);
-        
+        }
     }];
     return _categories;
 }
+
+- (void) deleteAllObjects: (NSString *) entityDescription  {
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:entityDescription inManagedObjectContext:[[TTRSSAppDelegate instance] managedObjectContext]];
+    [fetchRequest setEntity:entity];
+    
+    NSError *error;
+    NSArray *items = [[[TTRSSAppDelegate instance] managedObjectContext] executeFetchRequest:fetchRequest error:&error];
+    
+    
+    for (NSManagedObject *managedObject in items) {
+    	[[[TTRSSAppDelegate instance] managedObjectContext]  deleteObject:managedObject];
+    }
+    if (![[[TTRSSAppDelegate instance] managedObjectContext]  save:&error]) {
+    }
+    
+}
+
 @end

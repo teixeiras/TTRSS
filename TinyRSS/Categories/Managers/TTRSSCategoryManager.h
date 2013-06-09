@@ -10,7 +10,9 @@
 #import "TTRSSCategory.h"
 #import "TTRSSCounters.h"
 @interface TTRSSCategoryManager : NSObject
+@property NSMutableArray * categories;
 +(TTRSSCategoryManager *) shareCategoryManager;
 -(NSArray *) retrieveCategoriesWithBlock:(void(^)(NSArray *)) onRetrieve;
 -(void)counters:(void(^)(NSDictionary *)) onRetrieve;
+-(void) loadCategories;
 @end
